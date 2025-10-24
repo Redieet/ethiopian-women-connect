@@ -15,26 +15,28 @@ const CallToAction = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="text-foreground">Ready to Grow Your Business? </span>
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Join ምን አለሽ? Today!
-            </span>
+            <span className="text-foreground">Join ምን አለሽ? today and grow your business with trust!</span>
           </h2>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Shop local. Support women. Stay connected. Be part of Ethiopia's most trusted women-led marketplace.
+            Shop local. Support women. Stay connected. Link your Telegram and bring your customers with you!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link to="/auth?tab=signup&role=seller">
               <Button variant="hero" size="lg" className="w-full sm:w-auto group">
-                Start Selling Today
+                Join as Seller
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/auth?tab=signup&role=buyer">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Browse Products
+                Shop Now
+              </Button>
+            </Link>
+            <Link to="/community">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                Explore Community
               </Button>
             </Link>
           </div>

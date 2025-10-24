@@ -8,6 +8,8 @@ import Auth from "./pages/Auth";
 import Community from "./pages/Community";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Logistics from "./pages/Logistics";
+import TelegramBot from "./pages/TelegramBot";
 import SellerDashboard from "./pages/SellerDashboard";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/logistics" element={<Logistics />} />
+          <Route path="/telegram-bot" element={<TelegramBot />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/buyer-dashboard" element={<BuyerDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />

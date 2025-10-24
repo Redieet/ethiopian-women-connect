@@ -17,8 +17,8 @@ const Contact = () => {
     setIsSubmitting(true);
     
     setTimeout(() => {
-      toast.success("Message sent successfully!", {
-        description: "This is a demo version — backend connection coming soon. We'll get back to you shortly!",
+      toast.success("✅ Thank you! This is a demo version — backend connection coming soon.", {
+        description: "Message sent successfully! We'll get back to you shortly.",
       });
       setIsSubmitting(false);
       // Reset form

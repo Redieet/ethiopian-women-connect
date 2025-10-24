@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Package, ShoppingBag, Users, TrendingUp, Plus, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Package, ShoppingBag, Users, TrendingUp, Plus, MessageCircle, ArrowLeft, Home } from "lucide-react";
 
 const SellerDashboard = () => {
   return (
@@ -11,6 +12,18 @@ const SellerDashboard = () => {
       
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-4">
+          {/* Navigation */}
+          <div className="mb-6 flex gap-4">
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+          </div>
+
           {/* Welcome Header */}
           <div className="mb-8 animate-fade-up">
             <h1 className="text-4xl font-bold mb-2">
@@ -112,19 +125,52 @@ const SellerDashboard = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Link your Telegram or TikTok and earn rewards when you bring your followers to the platform!
                 </p>
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">📱 Telegram Channel:</span>
+                    <span className="text-sm font-medium">@yourbusiness</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">🎵 TikTok Shop:</span>
+                    <span className="text-sm font-medium">tiktok.com/@yourbusiness</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">👥 Followers Migrated:</span>
+                    <span className="text-sm font-medium text-primary">247</span>
+                  </div>
+                </div>
                 <Button variant="hero" className="w-full">
                   Connect Social Media
                 </Button>
               </Card>
 
               <Card className="p-6 border-2 border-border">
-                <h3 className="text-xl font-bold text-foreground mb-4">Collaborate</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Seller Collaboration</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Find other sellers to share stock and grow together
+                  Connect with other verified sellers for collaboration opportunities
                 </p>
-                <Button variant="outline" className="w-full">
-                  Browse Sellers
-                </Button>
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Active Collaborations:</span>
+                    <span className="font-medium text-primary">3</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Shared Deliveries:</span>
+                    <span className="font-medium text-accent">12</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Collaboration Savings:</span>
+                    <span className="font-medium text-green-600">2,400 ETB</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Button variant="outline" className="w-full">
+                    Browse Sellers
+                  </Button>
+                  <Button variant="outline" className="w-full">
+                    Join Collaboration Groups
+                  </Button>
+                </div>
               </Card>
 
               <Card className="p-6 border-2 border-border">

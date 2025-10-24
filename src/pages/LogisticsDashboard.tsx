@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Truck, MapPin, Clock, CheckCircle, Package, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Truck, MapPin, Clock, CheckCircle, Package, TrendingUp, ArrowLeft, Home } from "lucide-react";
 
 const LogisticsDashboard = () => {
   return (
@@ -11,6 +12,18 @@ const LogisticsDashboard = () => {
       
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-4">
+          {/* Navigation */}
+          <div className="mb-6 flex gap-4">
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+          </div>
+
           {/* Welcome Header */}
           <div className="mb-8 animate-fade-up">
             <h1 className="text-4xl font-bold mb-2">
@@ -132,17 +145,21 @@ const LogisticsDashboard = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               <Card className="p-6 border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-                <h3 className="text-xl font-bold text-foreground mb-4">Female Drivers</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">💪🏽 Women Drivers</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Empowering women in logistics - all our drivers are women entrepreneurs
+                </p>
                 <div className="space-y-3 mb-4">
                   {[
-                    { name: "Hanna Abebe", deliveries: 24, rating: 4.9 },
-                    { name: "Sara Tadesse", deliveries: 31, rating: 5.0 },
-                    { name: "Marta Girma", deliveries: 18, rating: 4.8 },
+                    { name: "Hanna Abebe", deliveries: 24, rating: 4.9, route: "Addis → Bahir Dar" },
+                    { name: "Sara Tadesse", deliveries: 31, rating: 5.0, route: "Addis → Hawassa" },
+                    { name: "Marta Girma", deliveries: 18, rating: 4.8, route: "Addis → Jimma" },
                   ].map((driver, index) => (
                     <div key={index} className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
                       <div>
                         <div className="font-medium text-foreground">{driver.name}</div>
                         <div className="text-xs text-muted-foreground">{driver.deliveries} deliveries</div>
+                        <div className="text-xs text-primary">{driver.route}</div>
                       </div>
                       <div className="text-sm font-semibold text-accent">{driver.rating} ⭐</div>
                     </div>
@@ -167,6 +184,25 @@ const LogisticsDashboard = () => {
                     View Analytics
                   </Button>
                 </div>
+              </Card>
+
+              <Card className="p-6 border-2 border-border">
+                <h3 className="text-xl font-bold text-foreground mb-4">Bus Partners</h3>
+                <div className="space-y-3 mb-4">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Selam Bus:</span>
+                    <span className="font-medium text-primary">Active</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Abay Bus:</span>
+                    <span className="font-medium text-primary">Active</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Sky Bus:</span>
+                    <span className="font-medium text-muted-foreground">Pending</span>
+                  </div>
+                </div>
+                <Button variant="outline" className="w-full">Manage Partners</Button>
               </Card>
 
               <Card className="p-6 border-2 border-border">

@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, ShoppingBag, TrendingUp, AlertCircle, CheckCircle, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Users, ShoppingBag, TrendingUp, AlertCircle, CheckCircle, Clock, ArrowLeft, Home } from "lucide-react";
 
 const AdminDashboard = () => {
   return (
@@ -11,6 +12,18 @@ const AdminDashboard = () => {
       
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-4">
+          {/* Navigation */}
+          <div className="mb-6 flex gap-4">
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+          </div>
+
           {/* Welcome Header */}
           <div className="mb-8 animate-fade-up">
             <h1 className="text-4xl font-bold mb-2">

@@ -44,6 +44,11 @@ const Hero = () => {
                   Shop Now
                 </Button>
               </Link>
+              <Link to="/about">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  About
+                </Button>
+              </Link>
             </div>
 
             {/* Features badges */}

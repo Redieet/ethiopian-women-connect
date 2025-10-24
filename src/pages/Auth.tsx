@@ -21,12 +21,16 @@ const Auth = () => {
     setIsSubmitting(true);
     
     setTimeout(() => {
-      toast.success("Welcome back!", {
-        description: "This is a demo version — backend connection coming soon.",
+      toast.success("✅ Thank you! This is a demo version — backend connection coming soon.", {
+        description: "Welcome back! You've been signed in successfully.",
       });
       setIsSubmitting(false);
-      // Navigate to buyer dashboard by default for signin
-      navigate("/buyer-dashboard");
+      // Navigate based on role for admin login
+      if (selectedRole === "admin") {
+        navigate("/admin-dashboard");
+      } else {
+        navigate("/buyer-dashboard");
+      }
     }, 1500);
   };
 
@@ -35,13 +39,15 @@ const Auth = () => {
     setIsSubmitting(true);
     
     setTimeout(() => {
-      toast.success("Account created successfully!", {
-        description: "This is a demo version — backend connection coming soon.",
+      toast.success("✅ Thank you! This is a demo version — backend connection coming soon.", {
+        description: "Account created successfully! Welcome to ምን አለሽ?",
       });
       setIsSubmitting(false);
       // Navigate based on selected role
       if (selectedRole === "seller") {
         navigate("/seller-dashboard");
+      } else if (selectedRole === "admin") {
+        navigate("/admin-dashboard");
       } else {
         navigate("/buyer-dashboard");
       }
@@ -95,7 +101,7 @@ const Auth = () => {
               <form onSubmit={handleSignUp} className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <Label>I want to</Label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-3 gap-2">
                     <Button
                       type="button"
                       variant={selectedRole === "buyer" ? "default" : "outline"}
@@ -111,6 +117,14 @@ const Auth = () => {
                       className="w-full"
                     >
                       Sell
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={selectedRole === "admin" ? "default" : "outline"}
+                      onClick={() => setSelectedRole("admin")}
+                      className="w-full"
+                    >
+                      Admin
                     </Button>
                   </div>
                 </div>

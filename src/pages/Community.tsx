@@ -70,7 +70,11 @@ const Community = () => {
                     {category.name}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4">{category.members} members</p>
-                  <Button variant="outline" className="w-full">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => window.open('https://t.me/ethiopianwomenconnect', '_blank')}
+                  >
                     Join Telegram Group
                   </Button>
                 </Card>

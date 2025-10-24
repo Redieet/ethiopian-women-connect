@@ -22,8 +22,23 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link to="/community" className="text-foreground hover:text-primary transition-colors">
-              Community
+            <Link to="/" className="text-foreground hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link to="/auth?tab=signup&role=seller" className="text-foreground hover:text-primary transition-colors">
+              Sellers
+            </Link>
+            <Link to="/auth?tab=signup&role=buyer" className="text-foreground hover:text-primary transition-colors">
+              Buyers
+            </Link>
+            <Link to="/auth?tab=signin&role=admin" className="text-foreground hover:text-primary transition-colors">
+              Admin
+            </Link>
+            <Link to="/logistics" className="text-foreground hover:text-primary transition-colors">
+              Logistics
+            </Link>
+            <Link to="/telegram-bot" className="text-foreground hover:text-primary transition-colors">
+              Telegram Bot
             </Link>
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
@@ -53,11 +68,46 @@ const Navigation = () => {
           <div className="md:hidden pb-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               <Link
-                to="/community"
+                to="/"
                 className="text-foreground hover:text-primary transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
-                Community
+                Home
+              </Link>
+              <Link
+                to="/auth?tab=signup&role=seller"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Sellers
+              </Link>
+              <Link
+                to="/auth?tab=signup&role=buyer"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Buyers
+              </Link>
+              <Link
+                to="/auth?tab=signin&role=admin"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Admin
+              </Link>
+              <Link
+                to="/logistics"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Logistics
+              </Link>
+              <Link
+                to="/telegram-bot"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Telegram Bot
               </Link>
               <Link
                 to="/about"
