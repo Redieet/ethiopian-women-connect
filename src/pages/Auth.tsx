@@ -1,34 +1,51 @@
 import { useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Heart, ArrowLeft } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const Auth = () => {
   const [searchParams] = useSearchParams();
-  const { toast } = useToast();
+  const navigate = useNavigate();
   const defaultTab = searchParams.get("tab") || "signin";
   const defaultRole = searchParams.get("role") || "buyer";
   const [selectedRole, setSelectedRole] = useState(defaultRole);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Sign In",
-      description: "Authentication will be implemented with Lovable Cloud",
-    });
+    setIsSubmitting(true);
+    
+    setTimeout(() => {
+      toast.success("Welcome back!", {
+        description: "This is a demo version — backend connection coming soon.",
+      });
+      setIsSubmitting(false);
+      // Navigate to buyer dashboard by default for signin
+      navigate("/buyer-dashboard");
+    }, 1500);
   };
 
   const handleSignUp = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Sign Up",
-      description: `Creating account as ${selectedRole}. Authentication will be implemented with Lovable Cloud.`,
-    });
+    setIsSubmitting(true);
+    
+    setTimeout(() => {
+      toast.success("Account created successfully!", {
+        description: "This is a demo version — backend connection coming soon.",
+      });
+      setIsSubmitting(false);
+      // Navigate based on selected role
+      if (selectedRole === "seller") {
+        navigate("/seller-dashboard");
+      } else {
+        navigate("/buyer-dashboard");
+      }
+    }, 1500);
   };
 
   return (
@@ -68,8 +85,8 @@ const Auth = () => {
                   <Label htmlFor="password">Password</Label>
                   <Input id="password" type="password" placeholder="••••••••" required />
                 </div>
-                <Button type="submit" variant="hero" className="w-full">
-                  Sign In
+                <Button type="submit" variant="hero" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Signing in..." : "Sign In"}
                 </Button>
               </form>
             </TabsContent>
@@ -109,8 +126,8 @@ const Auth = () => {
                   <Label htmlFor="signup-password">Password</Label>
                   <Input id="signup-password" type="password" placeholder="••••••••" required />
                 </div>
-                <Button type="submit" variant="hero" className="w-full">
-                  Create Account
+                <Button type="submit" variant="hero" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Creating account..." : "Create Account"}
                 </Button>
               </form>
             </TabsContent>

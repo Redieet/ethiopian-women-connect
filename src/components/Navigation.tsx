@@ -28,6 +28,9 @@ const Navigation = () => {
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
             </Link>
+            <Link to="/contact" className="text-foreground hover:text-primary transition-colors">
+              Contact
+            </Link>
             <Link to="/auth">
               <Button variant="outline">Sign In</Button>
             </Link>
@@ -62,6 +65,13 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                to="/contact"
+                className="text-foreground hover:text-primary transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
               </Link>
               <Link to="/auth" onClick={() => setIsOpen(false)}>
                 <Button variant="outline" className="w-full">

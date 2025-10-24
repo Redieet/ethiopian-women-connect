@@ -36,6 +36,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
                 <Link to="/auth" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Get Started
                 </Link>
@@ -82,8 +87,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8">
-          <div className="text-center text-sm text-muted-foreground">
+          <div className="text-center text-sm text-muted-foreground space-y-2">
             <p>&copy; {new Date().getFullYear()} ምን አለሽ? All rights reserved. Built with 💗 for Ethiopian women entrepreneurs.</p>
+            <p className="text-xs">Demo Version — Built with ❤️ by Team ምን አለሽ?</p>
           </div>
         </div>
       </div>
