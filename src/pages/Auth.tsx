@@ -25,9 +25,11 @@ const Auth = () => {
         description: "Welcome back! You've been signed in successfully.",
       });
       setIsSubmitting(false);
-      // Navigate based on role for admin login
+      // Navigate based on role
       if (selectedRole === "admin") {
         navigate("/admin-dashboard");
+      } else if (selectedRole === "seller") {
+        navigate("/seller-dashboard");
       } else {
         navigate("/buyer-dashboard");
       }
@@ -45,7 +47,7 @@ const Auth = () => {
       setIsSubmitting(false);
       // Navigate based on selected role
       if (selectedRole === "seller") {
-        navigate("/seller-dashboard");
+        navigate("/seller-verification");
       } else if (selectedRole === "admin") {
         navigate("/admin-dashboard");
       } else {
@@ -83,6 +85,35 @@ const Auth = () => {
 
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4 mt-4">
+                <div className="space-y-2">
+                  <Label>I am a</Label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Button
+                      type="button"
+                      variant={selectedRole === "buyer" ? "default" : "outline"}
+                      onClick={() => setSelectedRole("buyer")}
+                      className="w-full"
+                    >
+                      Buyer
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={selectedRole === "seller" ? "default" : "outline"}
+                      onClick={() => setSelectedRole("seller")}
+                      className="w-full"
+                    >
+                      Seller
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={selectedRole === "admin" ? "default" : "outline"}
+                      onClick={() => setSelectedRole("admin")}
+                      className="w-full"
+                    >
+                      Admin
+                    </Button>
+                  </div>
+                </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <Input id="email" type="email" placeholder="your@email.com" required />

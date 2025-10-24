@@ -3,13 +3,15 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { ShoppingBag, Heart, Search, Package, Star, ArrowLeft, Home } from "lucide-react";
+import { ShoppingBag, Heart, Search, Package, Star, ArrowLeft, Home, MapPin, Users, CheckCircle, MessageCircle, Eye } from "lucide-react";
+import { sampleSellers } from "@/data/sampleData";
 
 const BuyerDashboard = () => {
   const products = [
     { 
-      id: 1,
+      id: "prod-1",
       name: "Traditional Coffee Set", 
       seller: "Sara's Coffee House", 
       sellerLocation: "Addis Ababa",
@@ -25,7 +27,7 @@ const BuyerDashboard = () => {
       verified: true
     },
     { 
-      id: 2,
+      id: "prod-3",
       name: "Handwoven Basket", 
       seller: "Marta's Crafts", 
       sellerLocation: "Bahir Dar",
@@ -41,7 +43,7 @@ const BuyerDashboard = () => {
       verified: true
     },
     { 
-      id: 3,
+      id: "prod-5",
       name: "Ethiopian Traditional Dress", 
       seller: "Rahel Fashion", 
       sellerLocation: "Hawassa",
@@ -57,7 +59,7 @@ const BuyerDashboard = () => {
       verified: true
     },
     { 
-      id: 4,
+      id: "prod-7",
       name: "Organic Honey", 
       seller: "Natural Products Co.", 
       sellerLocation: "Jimma",
@@ -73,7 +75,7 @@ const BuyerDashboard = () => {
       verified: true
     },
     { 
-      id: 5,
+      id: "prod-8",
       name: "Handmade Jewelry Set", 
       seller: "Jewels by Hanna", 
       sellerLocation: "Addis Ababa",
@@ -89,7 +91,7 @@ const BuyerDashboard = () => {
       verified: true
     },
     { 
-      id: 6,
+      id: "prod-2",
       name: "Spice Collection", 
       seller: "Alem's Spices", 
       sellerLocation: "Dire Dawa",
@@ -244,6 +246,70 @@ const BuyerDashboard = () => {
             </div>
           </div>
 
+          {/* Featured Sellers */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Featured Sellers</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {sampleSellers.slice(0, 6).map((seller) => (
+                <Card key={seller.id} className="p-6 border-2 border-border hover:border-primary/50 transition-all group">
+                  <div className="flex gap-4 mb-4">
+                    <img
+                      src={seller.profileImage}
+                      alt={seller.name}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-2">
+                        <div>
+                          <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
+                            {seller.name}
+                          </h3>
+                          <p className="text-sm text-muted-foreground">{seller.businessName}</p>
+                        </div>
+                        {seller.verified && (
+                          <CheckCircle className="w-5 h-5 text-green-600" />
+                        )}
+                      </div>
+                      
+                      <div className="flex items-center gap-2 mb-2">
+                        <MapPin className="w-3 h-3 text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">{seller.location}</span>
+                        <Badge variant="secondary" className="text-xs">
+                          {seller.productType}
+                        </Badge>
+                      </div>
+                      
+                      <div className="flex items-center gap-1 mb-2">
+                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        <span className="text-sm font-medium">{seller.rating}</span>
+                        <span className="text-xs text-muted-foreground">({seller.totalSales} sales)</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {seller.description}
+                  </p>
+                  
+                  <div className="flex gap-2">
+                    <Link to={`/seller-profile/${seller.id}`}>
+                      <Button variant="hero" className="flex-1">
+                        <Eye className="w-4 h-4 mr-2" />
+                        View Profile
+                      </Button>
+                    </Link>
+                    <Button variant="outline">
+                      <MessageCircle className="w-4 h-4" />
+                    </Button>
+                    <Button variant="outline">
+                      <Heart className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
           {/* Featured Products */}
           <div>
             <h2 className="text-2xl font-bold text-foreground mb-6">Featured Products</h2>
@@ -304,9 +370,11 @@ const BuyerDashboard = () => {
                       </div>
                     </div>
                     
-                    <Button variant="hero" size="sm" className="w-full">
-                      Buy Securely
-                    </Button>
+                    <Link to={`/payment/${product.id}`}>
+                      <Button variant="hero" size="sm" className="w-full">
+                        Buy Securely
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}

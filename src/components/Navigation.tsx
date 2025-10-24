@@ -25,21 +25,6 @@ const Navigation = () => {
             <Link to="/" className="text-foreground hover:text-primary transition-colors">
               Home
             </Link>
-            <Link to="/auth?tab=signup&role=seller" className="text-foreground hover:text-primary transition-colors">
-              Sellers
-            </Link>
-            <Link to="/auth?tab=signup&role=buyer" className="text-foreground hover:text-primary transition-colors">
-              Buyers
-            </Link>
-            <Link to="/auth?tab=signin&role=admin" className="text-foreground hover:text-primary transition-colors">
-              Admin
-            </Link>
-            <Link to="/logistics" className="text-foreground hover:text-primary transition-colors">
-              Logistics
-            </Link>
-            <Link to="/telegram-bot" className="text-foreground hover:text-primary transition-colors">
-              Telegram Bot
-            </Link>
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About
             </Link>
@@ -73,41 +58,6 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Home
-              </Link>
-              <Link
-                to="/auth?tab=signup&role=seller"
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Sellers
-              </Link>
-              <Link
-                to="/auth?tab=signup&role=buyer"
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Buyers
-              </Link>
-              <Link
-                to="/auth?tab=signin&role=admin"
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Admin
-              </Link>
-              <Link
-                to="/logistics"
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Logistics
-              </Link>
-              <Link
-                to="/telegram-bot"
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Telegram Bot
               </Link>
               <Link
                 to="/about"

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, ShoppingBag, TrendingUp, AlertCircle, CheckCircle, Clock, ArrowLeft, Home } from "lucide-react";
+import { Users, ShoppingBag, TrendingUp, AlertCircle, CheckCircle, Clock, ArrowLeft, Home, Shield, Package, DollarSign } from "lucide-react";
 
 const AdminDashboard = () => {
   return (
@@ -123,6 +123,18 @@ const AdminDashboard = () => {
               <Card className="p-6 border-2 border-border">
                 <h3 className="text-xl font-bold text-foreground mb-4">Quick Actions</h3>
                 <div className="space-y-3">
+                  <Link to="/admin-verification">
+                    <Button variant="outline" className="w-full justify-start">
+                      <Shield className="w-4 h-4 mr-2" />
+                      Seller Verification
+                    </Button>
+                  </Link>
+                  <Link to="/admin-orders">
+                    <Button variant="outline" className="w-full justify-start">
+                      <Package className="w-4 h-4 mr-2" />
+                      Manage Orders
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="w-full justify-start">
                     <Users className="w-4 h-4 mr-2" />
                     Manage Users

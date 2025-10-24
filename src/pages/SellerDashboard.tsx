@@ -33,6 +33,19 @@ const SellerDashboard = () => {
               </span>
             </h1>
             <p className="text-muted-foreground">Manage your products and grow your business</p>
+            
+            {/* Verification Status Banner */}
+            <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-green-100 rounded-full">
+                  <Package className="w-5 h-5 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-green-800">Account Verified</h3>
+                  <p className="text-sm text-green-700">Your seller account is fully verified and active</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Stats Overview */}
@@ -67,10 +80,12 @@ const SellerDashboard = () => {
                   <h2 className="text-2xl font-bold text-foreground">Quick Actions</h2>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <Button variant="hero" className="h-auto py-4 flex flex-col gap-2">
-                    <Plus className="w-6 h-6" />
-                    <span>Add New Product</span>
-                  </Button>
+                  <Link to="/add-product">
+                    <Button variant="hero" className="h-auto py-4 flex flex-col gap-2 w-full">
+                      <Plus className="w-6 h-6" />
+                      <span>Add New Product</span>
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="h-auto py-4 flex flex-col gap-2">
                     <Package className="w-6 h-6" />
                     <span>Manage Inventory</span>
@@ -164,9 +179,11 @@ const SellerDashboard = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Button variant="outline" className="w-full">
-                    Browse Sellers
-                  </Button>
+                  <Link to="/browse-sellers">
+                    <Button variant="outline" className="w-full">
+                      Browse Sellers
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="w-full">
                     Join Collaboration Groups
                   </Button>

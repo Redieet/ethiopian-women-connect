@@ -1,11 +1,55 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "react-router-dom";
-import { Truck, MapPin, Clock, CheckCircle, Package, TrendingUp, ArrowLeft, Home } from "lucide-react";
+import { Truck, MapPin, Clock, CheckCircle, Package, TrendingUp, ArrowLeft, Home, LogOut, Building2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
 
 const LogisticsDashboard = () => {
+  const navigate = useNavigate();
+  const [partnerInfo, setPartnerInfo] = useState<{
+    email: string;
+    companyName: string;
+    loginTime: string;
+  } | null>(null);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const storedPartner = localStorage.getItem('logisticsPartner');
+    if (storedPartner) {
+      try {
+        const partner = JSON.parse(storedPartner);
+        setPartnerInfo(partner);
+      } catch (error) {
+        console.error('Error parsing partner info:', error);
+        localStorage.removeItem('logisticsPartner');
+        navigate('/logistics-login');
+      }
+    } else {
+      navigate('/logistics-login');
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('logisticsPartner');
+    toast.success("Logged out successfully");
+    navigate('/logistics-login');
+  };
+
+  if (!partnerInfo) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
       <Navigation />
@@ -26,13 +70,41 @@ const LogisticsDashboard = () => {
 
           {/* Welcome Header */}
           <div className="mb-8 animate-fade-up">
-            <h1 className="text-4xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Logistics Partner
-              </span>{" "}
-              <span className="text-foreground">Dashboard</span>
-            </h1>
-            <p className="text-muted-foreground">Empowering Women in Logistics 💗</p>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h1 className="text-4xl font-bold mb-2">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    Logistics Partner
+                  </span>{" "}
+                  <span className="text-foreground">Dashboard</span>
+                </h1>
+                <p className="text-muted-foreground">Empowering Women in Logistics 💗</p>
+              </div>
+              <Button
+                variant="outline"
+                onClick={handleLogout}
+                className="flex items-center gap-2"
+              >
+                <LogOut className="w-4 h-4" />
+                Logout
+              </Button>
+            </div>
+            
+            {/* Welcome Message */}
+            <Alert className="border-green-200 bg-green-50">
+              <CheckCircle className="h-4 w-4 text-green-600" />
+              <AlertDescription className="text-green-800">
+                <div className="flex items-center gap-2">
+                  <Building2 className="w-4 h-4" />
+                  <span className="font-semibold">
+                    Welcome, {partnerInfo.companyName}!
+                  </span>
+                </div>
+                <p className="text-sm mt-1">
+                  Your deliveries dashboard is ready. You have access to manage all your logistics operations.
+                </p>
+              </AlertDescription>
+            </Alert>
           </div>
 
           {/* Stats Overview */}

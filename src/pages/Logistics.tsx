@@ -27,6 +27,16 @@ const Logistics = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Empowering women in logistics and delivery services across Ethiopia
             </p>
+            
+            {/* Partner Login Button */}
+            <div className="mt-8">
+              <Link to="/logistics-login">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-3">
+                  <Truck className="w-5 h-5 mr-2" />
+                  Partner Login
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Stats */}
