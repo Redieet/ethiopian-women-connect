@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Heart, ShoppingBag, Users, Truck } from "lucide-react";
 import heroImage from "@/assets/hero-entrepreneur.jpg";
-
+import AIAssistantWidget from "../components/AIAssistantWidget";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">

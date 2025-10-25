@@ -62,6 +62,7 @@ const ProductDetail = () => {
             profileImage: seller.profileImage,
             socialMedia: seller.socialMedia
           },
+          sold: 0,
           images: [
             product.image,
             "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop",
@@ -189,11 +190,11 @@ const ProductDetail = () => {
                         <div className="flex items-center gap-1">
                           <Star className="w-5 h-5 text-yellow-500 fill-current" />
                           <span className="text-lg font-bold">{product.rating}</span>
-                          <span className="text-sm text-muted-foreground">({product.reviews} reviews)</span>
+                          <span className="text-sm text-muted-foreground">({product.reviews.length} reviews)</span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Users className="w-4 h-4 text-muted-foreground" />
-                          <span className="text-sm text-muted-foreground">{product.reviews} sold</span>
+                          <span className="text-sm text-muted-foreground">{product.sold ?? 0} sold</span>
                         </div>
                       </div>
                       

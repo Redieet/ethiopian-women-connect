@@ -19,7 +19,12 @@ const Navigation = () => {
               ምን አለሽ?
             </span>
           </Link>
-
+            <div className="ml-auto flex items-center gap-2">
+        {/* Replace with a defined wallet object or a default value */}
+        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-800">
+          {0} pts
+        </span>
+      </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-foreground hover:text-primary transition-colors">
@@ -30,6 +35,9 @@ const Navigation = () => {
             </Link>
             <Link to="/logs" className="text-foreground hover:text-primary transition-colors">
             Logistics
+            </Link>
+              <Link to="/telegram-bot" className="text-foreground hover:text-primary transition-colors">
+            Telegram Bot
             </Link>
             <Link to="/contact" className="text-foreground hover:text-primary transition-colors">
               Contact

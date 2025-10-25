@@ -130,6 +130,9 @@ const BuyerDashboard = () => {
               <Home className="w-4 h-4" />
               Home
             </Link>
+          <Link to="/buyer-dashboard/tiktok" className="px-3 ml-[900px] py-2 rounded-lg hover:bg-amber-50">
+  <button className="p-2 bg-gradient-to-r from-red-500 to-orange-400 rounded-2xl">TikTok Collection</button> 
+</Link>
           </div>
 
           {/* Welcome Header */}
