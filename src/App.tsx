@@ -40,7 +40,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/logistics" element={<Logistics />} />
-          <Route path="/logistics-login" element={<LogisticsLogin />} />
+          <Route path="/logs" element={<LogisticsLogin />} />
           <Route path="/telegram-bot" element={<TelegramBot />} />
           <Route path="/seller-dashboard" element={<SellerDashboard />} />
           <Route path="/seller-verification" element={<SellerVerification />} />
@@ -53,6 +53,7 @@ const App = () => (
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin-verification" element={<AdminVerification />} />
           <Route path="/admin-orders" element={<AdminOrders />} />
+
           <Route path="/logistics-dashboard" element={<LogisticsDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
